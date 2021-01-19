@@ -34,7 +34,6 @@ The Daily Byte
 civic
 .LP
 and using readlines method we can read each sentence in different lines.
-
 .NH
 .XN "Day 2"
 .LP
@@ -44,6 +43,7 @@ It's basically check if a sentence read the same forward and backward.
 .PP
 For this challenge i solve it by comparing the actual string and the reverse string version, if it's the same then it's polindrome. I turn all the string into lowercase and remove all symbols before comparing actual string and reverse string.
 Here is the code:
+.IP
 .CW
 from fire import Fire
 
@@ -54,12 +54,8 @@ def main(input):
 
 if __name__ == '__main__':
     Fire(main)
-
 .LP
 I use fire python module to give an input in command line interface, you could give the list directly inside the code if you want. I'm still learning about regular expression so i'm not sure how to implement regex in this case for now.
-
-.bp
-
 .NH
 .XN "Day 3"
 .LP
@@ -74,10 +70,8 @@ L -> left
 R -> Right
 
 .PP
-So first thing first we need to know that to back to original position we need to define the variable of the moves and the oposite of the move, for example, the oposite of up is down so if the robot going up then the we're gonna add the value of up-down variable and if the robot going down then we're gonna minus the value of up-down variable so if the robot back to original position then the value of up-down varible should be 0.
-
-With that in mind, here's the code:
-.LP
+So first thing first we need to know that to back to original position we need to define the variable of the moves and the oposite of the move, for example, the oposite of up is down so if the robot going up then the we're gonna add the value of up-down variable and if the robot going down then we're gonna minus the value of up-down variable so if the robot back to original position then the value of up-down varible should be 0. With that in mind, here's the code:
+.IP
 .CW
 from fire import Fire
 
@@ -99,5 +93,32 @@ def main(moves):
 
 if __name__ == '__main__':
     Fire(main)
+.NH
+.XN "Day 4"
+.LP
+Given a string, return whether or not it uses capitalization correctly. A string correctly uses capitalization if all letters are capitalized, no letters are capitalized, or only the first letter is capitalized.
+.LP
+Example:
+"USA", return True
+"Nganu", return True
+"compUter", return False
+"coding", return True
 
+.PP
+To solve that challenge i use python built-in string methods that is
+.CW "string.isupper()"
+to check if all the letter is uppercase and
+.CW "string.islower()"
+to check if all the letter is lowercase and for only the first letter is capitalized i compare the result of python built-in string methods that is
+.CW "string.capitalize()"
+with the actual word. With that in mind, here's the code:
+.IP
+.CW
+from fire import Fire
+
+def main(word):
+    print(word.isupper() or word.islower() or word == word.capitalize())
+
+if __name__ == '__main__':
+    Fire(main)
 .TC
