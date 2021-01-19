@@ -16,10 +16,7 @@ def main(moves):
         elif m == 'R':
             LR -= 1
 
-    if UD == 0 and LR == 0:
-        print('true')
-    else:
-        print('false')
+    print(UD == 0 and LR == 0)
 
 if __name__ == '__main__':
     Fire(main)
