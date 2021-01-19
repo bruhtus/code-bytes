@@ -42,7 +42,7 @@ The challenge for day two is palindrome case.
 It's basically check if a sentence read the same forward and backward.
 
 .PP
-For this challenge i solve it by comparing the actual string and the reverse string version, if it's the same than it's polindrome. I turn all the string into lowercase and remove all symbols before comparing actual string and reverse string.
+For this challenge i solve it by comparing the actual string and the reverse string version, if it's the same then it's polindrome. I turn all the string into lowercase and remove all symbols before comparing actual string and reverse string.
 Here is the code:
 .CW
 from fire import Fire
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     Fire(main)
 
 .LP
-I use fire python module to give an input in command line interface, you could give the list directly inside the code if you want.
+I use fire python module to give an input in command line interface, you could give the list directly inside the code if you want. I'm still learning about regular expression so i'm not sure how to implement regex in this case for now.
 
 .bp
 
