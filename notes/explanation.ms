@@ -210,7 +210,6 @@ here's another example using base-10:
 .bp
 .LP
 With that in mind, here's the code:
-
 .IP
 .CW
 from fire import Fire
