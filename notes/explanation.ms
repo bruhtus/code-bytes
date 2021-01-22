@@ -74,6 +74,16 @@ D,->,Down
 L,->,Left
 R,->,Right
 .TE
+.LP
+Example:
+.IP
+.TS
+tab(,);
+lcc.
+"LR",return,True
+"URURD",return,False
+"RUULLDRD",return,True
+.TE
 
 .PP
 So first thing first we need to know that to back to original position we need to define the variable of the moves and the oposite of the move, for example, the oposite of up is down so if the robot going up then the we're gonna add the value of up-down variable and if the robot going down then we're gonna minus the value of up-down variable so if the robot back to original position then the value of up-down varible should be 0. With that in mind, here's the code:
@@ -109,7 +119,7 @@ Example:
 .IP
 .TS
 tab(,);
-ccc.
+lcc.
 "USA",return,True
 "Nganu",return,True
 "compUter",return,False
