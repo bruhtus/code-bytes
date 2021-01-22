@@ -5,7 +5,7 @@ def main(file_input):
         string = f.read().splitlines()
 
         for s in string:
-            print(s[::-1].strip())
+            print(s[::-1])
 
 if __name__ == '__main__':
     Fire(main)
