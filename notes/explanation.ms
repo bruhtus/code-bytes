@@ -99,6 +99,7 @@ def main(moves):
 
 if __name__ == '__main__':
     Fire(main)
+.bp
 .NH
 .XN "Day 4 - Correct Capitalization"
 .LP
@@ -123,7 +124,6 @@ to check if all the letter is uppercase and
 to check if all the letter is lowercase and for only the first letter is capitalized i compare the result of python built-in string methods that is
 .CW "string.capitalize()"
 with the actual word.
-.bp
 .LP
 With that in mind, here's the code:
 .IP
@@ -138,7 +138,7 @@ if __name__ == '__main__':
 .NH
 .XN "Day 5 - Add Binary"
 .LP
-Given two binary strings (strings containing only 0s and 1s) and then return their sum as a binary strings too. Neither binary string will start with 0s unless the string itself is 0.
+Given two binary strings (strings containing only 0s and 1s) and then return their sum as a binary strings too. Note: neither binary string will start with 0s unless the string itself is 0.
 .LP
 Example:
 .IP
@@ -212,7 +212,6 @@ here's another example using base-10:
 .IP
 .CW "int('11', 10)"
 -> 1*(10**1) + 1*(10**0)
-.bp
 .LP
 With that in mind, here's the code:
 .IP
@@ -229,4 +228,58 @@ if __name__ == '__main__':
     Fire(main)
 .LP
 I convert the input to string because fire python module automatically convert the python object even though i use "" to declare as string and it still recognized as integer. For s[2::] means that it start from second part (so 0 and 1 doesn't shown), if i didn't do that then the result gonna be 0b100 which 100 is the binary of the result and we didn't really need 0b.
+.NH
+.XN "Day 6 - Longest Common Prefix"
+.LP
+Given an array of strings, return the longest common prefix that is shared amongst all strings. Note: you may assume all strings only contain lowercase alphabetical characters.
+.LP
+Example:
+.IP
+.TS
+tab(|);
+lcl.
+["colorado", "color", "cold"]|return|"col"
+["a", "b", "c"]|return|""
+["spot", "spotty", "spotted"]|return|"spot"
+.TE
+
+.PP
+To solve that problem i search for the shortest length from all input string.
+.LP
+For example:
+.IP
+from input ["colorado", "color", "cold"], the shortest length from all the input string is "cold" with only 4 characters.
+.LP
+From there i compare all the characters from all the input string with the character from the shortest string. I do this to avoid index out of bounds error and also if shortest string doesn't have any character left then the common prefix gonna end anyway.
+.bp
+.PP
+There are two conditional, that is if the input only contain 1 character like ['a', 'a', 'a'] or not and if that's not the case then i'm gonna ignore the shortest word because i'm gonna compare the other word with the shortest word so i don't need to compare the same word. With that in mind, here's the code:
+.IP
+.CW
+from fire import Fire
+
+def main(file_input):
+    with open(file_input) as f:
+        collections = f.read().splitlines()
+
+        compare_len = [len(collections[i]) for i in range(len(collections))]
+        min_len = min(compare_len)
+
+        min_list = [s for s in collections if len(s) == min_len]
+        min_word = "".join(min_list[0])
+
+        for word in collections:
+            if len(min_list) > 1 and min_len == 1 and word == min_word:
+                result = "".join([char for char in min_word if char in word])
+            elif word == min_word:
+                pass
+            else:
+                result = "".join([char for char in min_word if char in word])
+
+        print(result)
+
+if __name__ == '__main__':
+    Fire(main)
+.LP
+How it works is basically if there's a character from the shortest word on other word then add to the list. The "".join([char for char in min_word if char in word]) is basically to make the result as a string and not a list.
 .TC
