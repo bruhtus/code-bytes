@@ -18,12 +18,17 @@ So for this challenge the main code is
 I solve this challenge using external file as an input, the code is below:
 .IP
 .CW
-f = open('input', 'r')
+from fire import Fire
 
-string = f.readlines()
+def main(file_input):
+    with open(file_input) as f:
+        string = f.read().splitlines()
 
-for s in string:
-    print(s[::-1])
+        for s in string:
+            print(s[::-1].strip())
+
+if __name__ == '__main__':
+    Fire(main)
 .LP
 here's inside input file:
 .IP
@@ -34,7 +39,7 @@ The Daily Byte
 civic
 .TE
 .LP
-and using readlines method we can read each sentence in different lines.
+and using read().splitlines() method we can read each sentence in different lines.
 .NH
 .XN "Day 2 - Valid Palindrome"
 .LP
