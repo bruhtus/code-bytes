@@ -222,12 +222,12 @@ def main(string1, string2):
     a = str(string1)
     b = str(string2)
     s = bin(int(a, 2) + int(b, 2))
-    print(s[2::])
+    print(s[2:])
 
 if __name__ == '__main__':
     Fire(main)
 .LP
-I convert the input to string because fire python module automatically convert the python object even though i use "" to declare as string and it still recognized as integer. For s[2::] means that it start from second part (so 0 and 1 doesn't shown), if i didn't do that then the result gonna be 0b100 which 100 is the binary of the result and we didn't really need 0b.
+I convert the input to string because fire python module automatically convert the python object even though i use "" to declare as string and it still recognized as integer. For s[2:] means that it start from second part (so 0 and 1 doesn't shown), if i didn't do that then the result gonna be 0b100 which 100 is the binary of the result and we didn't really need 0b.
 .NH
 .XN "Day 6 - Longest Common Prefix"
 .LP
