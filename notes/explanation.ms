@@ -292,4 +292,46 @@ if __name__ == '__main__':
     Fire(main)
 .LP
 How it works is basically if there's a character from the shortest word on other word then add to the list. The "".join([char for char in min_word if char in word]) is basically to make the result as a string and not a list.
+.NH
+.XN "Day 7 - Valid Palindrome with Removal"
+.LP
+Given a string and the ability to delete at most one character, return whether or not it can form a palindrome (read the same forward and backward).
+.LP
+Example:
+.IP
+.TS
+tab(,);
+lcc.
+"abcba",return,True
+"foobof",return,True
+"abccab",return,False
+.TE
+
+.PP
+The first thing i do is checking if it's a normal palindrome or not, if it's palindrome then print the result immediately and if it's not then remove one character or alphabet and check if it's palindrome or not while print out the result of all possibilities, for example, from "foobof" we can get a polindrome from "fobof" if we remove the first or second "o" or we can get a polindrome from "fooof" if we remove the character "b".
+.bp
+.LP
+With that in mind, here's the code:
+.IP
+.CW
+from fire import Fire
+
+def main(string):
+    if string == string[::-1]:
+        print(string == string[::-1])
+
+    else:
+        palindrome = ''
+        for i in range(len(string)):
+            new_string = string[:i] + string[i+1:]
+            if new_string == new_string[::-1]:
+                print(f'{new_string} -> {new_string == new_string[::-1]}')
+                palindrome = new_string == new_string[::-1]
+            else:
+                not_palindrome = new_string == new_string[::-1]
+
+        print(palindrome) if palindrome != '' else print(not_palindrome)
+
+if __name__ == '__main__':
+    Fire(main)
 .TC
