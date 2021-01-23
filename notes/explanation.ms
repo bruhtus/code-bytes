@@ -55,7 +55,7 @@ from fire import Fire
 def main(input):
     input_without_symbols = input.replace(',', '').replace(':', '').replace(' ', '').replace('.', '')
 
-    print(f'{input} -> true') if input_without_symbols.lower() == input_without_symbols.lower()[::-1] else print(f'{input} -> false')
+    print(input_without_symbols.lower() == input_without_symbols.lower()[::-1])
 
 if __name__ == '__main__':
     Fire(main)
