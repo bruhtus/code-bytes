@@ -1,5 +1,5 @@
 .TL
-Code Bytes Daily Challenge Explanation (Python)
+My Daily Bytes (by Kevin Naughton Jr) Solution (Python)
 .AU
 Robertus Diawan Chris
 .NH
@@ -331,6 +331,48 @@ def main(string):
                 not_palindrome = new_string == new_string[::-1]
 
         print(palindrome) if palindrome != '' else print(not_palindrome)
+
+if __name__ == '__main__':
+    Fire(main)
+.NH
+.XN "Day 8 - Two Sum"
+.LP
+Given an array of integers, return, whether or not two numbers sum to a given target 'k'. Note: you may not sum a number with itself.
+.LP
+Example:
+.IP
+.TS
+tab(|);
+llcc.
+[1, 3, 8, 2]|k = 10|return|True
+[3, 9, 13, 7]|k = 8|return|False
+[4, 2, 5, 2]|k = 4|return|True
+.TE
+
+.PP
+I use external file as an input and then use the content from that file as an array input. I use two looping, the first is looping through all the array content and then split current content from the rest. After that, on second loop is for sum the current content with the rest of the array content and check if the result is the same as the target or not. With that in mind, here's the code:
+.IP
+.CW
+from fire import Fire
+
+def main(file_input, target):
+    with open(file_input) as f:
+        num_array = f.read().splitlines()
+
+        true_sum = ''
+        for i in range(len(num_array)):
+            num = int(num_array[i])
+            plus_array = num_array[:i] + num_array[i+1:]
+
+            for j in plus_array:
+                j = int(j)
+
+                if num + j == target:
+                    true_sum = num + j == target
+                else:
+                    false_sum = num + j == target
+
+        print(true_sum) if true_sum != '' else print(false_sum)
 
 if __name__ == '__main__':
     Fire(main)
