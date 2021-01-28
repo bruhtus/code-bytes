@@ -376,4 +376,32 @@ def main(file_input, target):
 
 if __name__ == '__main__':
     Fire(main)
+.NH
+.XN "Day 9 - Jewels and Stones"
+.LP
+Given a string representing your stones and another string representing a list of jewels, return the number of stones that you have that are also jewels.
+.LP
+Example:
+.IP
+.TS
+tab(,);
+clclccc.
+jewels=,"abc",stones=,"ac",return,2
+jewels=,"Af",stones=,"AaaddfFf",return,3
+jewels=,"AYOPD",stones=,"ayopd",return,0
+.TE
+
+.PP
+For this challenge i use list comprehension and then print the length of the list. The logic is like this, if any string in stones also in string jewels then put that string into list (like example above). With that in mind, here's the code:
+.IP
+.CW
+from fire import Fire
+
+def main(jewels, stones):
+    similar = [j for j in stones if j in jewels]
+
+    print(f'Stones that are also jewels: {len(similar)}')
+
+if __name__ == '__main__':
+    Fire(main)
 .TC
