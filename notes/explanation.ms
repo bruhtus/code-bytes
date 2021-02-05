@@ -385,10 +385,10 @@ Example:
 .IP
 .TS
 tab(,);
-clclccc.
-jewels=,"abc",stones=,"ac",return,2
-jewels=,"Af",stones=,"AaaddfFf",return,3
-jewels=,"AYOPD",stones=,"ayopd",return,0
+llcc.
+jewels="abc",stones="ac",return,2
+jewels="Af",stones="AaaddfFf",return,3
+jewels="AYOPD",stones="ayopd",return,0
 .TE
 
 .PP
@@ -399,8 +399,42 @@ from fire import Fire
 
 def main(jewels, stones):
     similar = [j for j in stones if j in jewels]
-
     print(f'Stones that are also jewels: {len(similar)}')
+
+if __name__ == '__main__':
+    Fire(main)
+.NH
+.XN "Day 10 - Valid Anagram"
+.LP
+Given two strings
+.CW "s"
+and
+.CW "t",
+return whether or not
+.CW "s"
+is anagram of
+.CW "t".
+Note: An anagram is a word formed by reordering the letters of another word.
+.LP
+Example:
+.IP
+.TS
+tab(,);
+llcc.
+s="cat",t="tac",return,True
+s="listen",t="silent",return,True
+s="program",t="function",return,True
+.TE
+
+.PP
+For this challenge i use list comprehension to check is there similar alphabet from string one in string two, if there's then add that alphabet into the list. After that, check the length of the result list with the length of one of the string (i assumed because it's reordering then it's gonna have the same length) and then print the comparison result. With that in mind, here's the code:
+.IP
+.CW
+from fire import Fire
+
+def main(string1, string2):
+    anagram = [s1 for s1 in string1 if s1 in string2]
+    print(len(anagram) == len(string1))
 
 if __name__ == '__main__':
     Fire(main)
