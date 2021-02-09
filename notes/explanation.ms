@@ -423,7 +423,7 @@ tab(,);
 llcc.
 s="cat",t="tac",return,True
 s="listen",t="silent",return,True
-s="program",t="function",return,True
+s="program",t="function",return,False
 .TE
 
 .PP
