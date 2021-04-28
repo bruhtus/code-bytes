@@ -438,4 +438,41 @@ def main(string1, string2):
 
 if __name__ == '__main__':
     Fire(main)
+.NH
+.XN "Day 11 - First Unique Character"
+.LP
+Given a string, return the index of its first unique character. If a unique character does not exist, return -1
+.LP
+Example:
+.IP
+.TS
+tab(,);
+lcc.
+"abcabd",return,2
+"thedailybyte",return,1
+"developer",return,0
+"anuuna",return,-1
+.TE
+
+.PP
+For this challenge i make new string without the current alphabet. For example, if i want to check the first 'a' from 'abcabd' then i'm gonna make new string containing 'bcabd' and if i want to check 'c' from 'abcabd' then i'm gonna make new string containing 'ababd'.
+.PP
+The new string contains the alphabet before and after the current string, that's because if i only check the alphabet after the current string, there's a possibilities that the alphabet appear before the current string. For example, if i want to check the first 'u' from 'anuuna' with only the alphabet after the current string then it's not gonna return the index because there's a second 'u' after the first 'u', but if i want to check the second 'u' then it's gonna return the index of second 'u' because there's no other 'u' after the second 'u'.
+.PP
+What i take from this challenge is that unique character/alphabet is the only character/alphabet in the entire string so if there're more than one character/alphabet then it's not unique. That's why i make sure that character/alphabet is the only one in the string by checking the character/alphabet before and after. With that in mind, here's the code:
+.IP
+.CW
+from fire import Fire
+
+def main(input):
+    for i in range(len(input)):
+        new_string = input[:i] + input[i+1:]
+        if input[i] not in new_string:
+            print(i)
+            break
+        elif i == len(input)-1:
+            print(-1)
+
+if __name__ == '__main__':
+    Fire(main)
 .TC
